@@ -47,16 +47,25 @@
 ---
 
 #### Задание 2. Kibana
-
 Установите и запустите Kibana.
 
 *Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty*.
 
 ---
 
-### Решение 2*.
-1. 
+### Решение 2.
+1. Установим стек ELK.  
+`sudo docker-compose up`  
+Через команду `docker ps -a` посмотрим список работающих контейнейнеров, в том числе Kibana.  
+<img src = "img/2-1.png" width = 60%>  
 
+2.   Обратимся к браузеру по адресу: http://192.168.65.135:5601/login?next=%2Fapp%2Fdev_tools#/console (или localhost вместо ip).  
+<img src = "img/2-2.png" width = 60%> 
+
+#### Конфигурационный файл.  
+[конфигурация Kibana](configs/kibana/config.yml)
+
+---
 
 ### Задание 3. Logstash
 
