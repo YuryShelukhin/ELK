@@ -16,7 +16,6 @@
 **Примечание**: если у вас недоступны официальные образы, можете найти альтернативные варианты в DockerHub, например, [такой](https://hub.docker.com/layers/bitnami/elasticsearch/7.17.13/images/sha256-8084adf6fa1cf24368337d7f62292081db721f4f05dcb01561a7c7e66806cc41?context=explore).
 
 ## Задание 1. Elasticsearch 
-
 Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный. 
 
 *Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name*.
@@ -24,44 +23,26 @@
 ---
 
 ### Решение 1.
-1. Установим Terraform    
-`sudo snap install terraform --classic`
- 
-<img src = "img/1-1.png" width = 60%>      
+1. Установим Docker    
+`sudo apt  install docker-compose`
+Установим стек ELK.  
+`sudo docker-compose up`  
+Через команду `docker ps -a` посмотрим список работающих контенейнеров, определим id elastic.  
+<img src = "img/1-1.png" width = 60%>   
 
-2. Создадим плейбук. Установим Nginx путем передачи в Terraform  параметров с помощью #cloud-config в файле metadata.yaml. Ключ от сервисного аккаунта укажем в отдельном файле. 
-   
-`   terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-  required_version = ">= 0.13"
-}` 
+2. Зайдем внутрь контейнера через команду `sudo docker exec -it 01834b15e04d bash` и командой `curl -u elastic:test -X GET 'localhost:9200/_cluster/health?pretty'` проверим конфигурацию (с указанием имени и пароля).  
+<img src = "img/1-2.png" width = 60%>    
 
-`provider "yandex" {
-  service_account_key_file = "/home/yury/key.json" 
-  cloud_id                 = "b1ge6ksn8gkr97asu03a"
-  folder_id                = "b1gsn46kdu9vi56ievnv"
-  zone      = "ru-central1-b"
-}`  
-Весь плейбук в приложенном файле
-#### Конфигурационные файлы.  
-[плейбук](files/main1.tf)  
-[cloud-config](files/metadata.yaml)
+Теперь поменяем имя кластера в конфигурационном файле, который прокидывается внутрь контейнера.  
+<img src = "img/1-3.png" width = 60%>    
+<img src = "img/1-4.png" width = 60%>    
 
-3. Запустим Terraform, проверим создание виртуальных машин и балансирощика, сделаем запрос на порт 80 балансирощика, убедимся,что работает Nginx.  
-`terraform validate`  
-`terraform init`    
-`terraform apply`    
-<img src = "img/1-2.png" width = 60%>
-<img src = "img/1-3.png" width = 60%>
-<img src = "img/1-4.png" width = 60%>
+4. Перезапустим один контейнер командой `sudo docker-compose restart elasticsearch` и вновь зайдем в него для проверки конфигурации.    
 <img src = "img/1-5.png" width = 60%>
-<img src = "img/1-6.png" width = 60%>  
-  
-`terraform destroy`  
+
+#### Конфигурационные файлы.  
+[конфигурация Docker-compose](docker-compose.yml)  
+[конфигурация Elasticsearch](configs/elasticsearch/config.yml)
 
 ---
 
@@ -74,22 +55,7 @@
 ---
 
 ### Решение 2*.
-1. Создадим плейбук и файл метаданных. 
- 
-#### Конфигурационные файлы.  
-[плейбук](files/main2.tf)  
-[cloud-config](files/metadata.yaml)
-
-2. Запустим Terraform, проверим создание виртуальных машин и балансирощика, сделаем запрос на порт 80 балансирощика, убедимся,что работает Nginx.    
-
-<img src = "img/2-1.png" width = 60%>
-<img src = "img/2-2.png" width = 60%>
-<img src = "img/2-3.png" width = 60%>
-<img src = "img/2-4.png" width = 60%>
-<img src = "img/2-5.png" width = 60%>
-<img src = "img/2-6.png" width = 60%>  
-
----
+1. 
 
 
 ### Задание 3. Logstash
@@ -97,6 +63,13 @@
 Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch. 
 
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
+
+---
+
+### Решение 3.
+1.
+
+
 
 ---
 
