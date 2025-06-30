@@ -4,7 +4,7 @@ services:
   elasticsearch:
     image: elasticsearch:7.16.1
     volumes:
-      - ./configs/elasticsearch/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./configs/elasticsearch/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       # - ./docker_volumes/elasticsearch/data:/usr/share/elasticsearch/data
     environment:
       ES_JAVA_OPTS: "-Xmx512m -Xms512m"
@@ -16,15 +16,34 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    depends_on:
+      - nginx
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx_logs:/var/log/nginx
+    #  - /var/log/nginx/error.log:/var/log/nginx/error.log
+    #  - /var/log/nginx/access.log:/var/log/nginx/access.log
+    networks:
+      - elk    
+    environment:
+      - NGINX_USER=root
+      - NGINX_ERROR_LOG_FILE=/var/log/nginx/error.log
+      - NGINX_ACCESS_LOG_FILE=/var/log/nginx/access.log 
+    restart: always
 
   logstash:
     image: logstash:7.16.2
     volumes:
-      - ./configs/logstash/config.yml:/usr/share/logstash/config/logstash.yml:ro
-      - ./configs/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
-      - ./configs/logstash/pipelines:/usr/share/logstash/config/pipelines:ro
+      - ./configs/logstash/config.yml:/usr/share/logstash/config/logstash.yml
+      - ./configs/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./configs/logstash/pipelines:/usr/share/logstash/config/pipelines
+      - ./nginx_logs:/var/log/nginx 
     environment:
-      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m" 
     ports:
       - "5044:5044"
       - "5001:5000"
@@ -39,7 +58,7 @@ services:
     depends_on:
       - elasticsearch
     volumes:
-      - ./configs/kibana/config.yml:/usr/share/kibana/config/kibana.yml:ro
+      - ./configs/kibana/config.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - elk
     ports:
@@ -48,8 +67,8 @@ services:
   beats:
     image: elastic/filebeat:7.16.2
     volumes:
-      - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./host_metrics_app/:/host_metrics_app/:ro
+      - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml
+      - ./host_metrics_app/:/host_metrics_app/
       - ./log_gen/:/log_gen/:ro
     networks:
       - elk
