@@ -2,15 +2,16 @@ version: '3.7'
 
 services:
   elasticsearch:
-    image: elasticsearch:7.16.1
+    image: elasticsearch:7.16.2
     volumes:
       - ./configs/elasticsearch/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      # - ./docker_volumes/elasticsearch/data:/usr/share/elasticsearch/data
+      - es_data:/usr/share/elasticsearch/data
     environment:
-      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
-      ELASTIC_USERNAME: "elastic"
-      ELASTIC_PASSWORD: "test"
-      discovery.type: single-node
+      - ES_JAVA_OPTS=-Xmx512m -Xms512m
+      - xpack.security.enabled=true
+      - ELASTIC_USERNAME=elastic
+      - ELASTIC_PASSWORD=test
+      - discovery.type=single-node
     networks:
       - elk
     ports:
@@ -25,8 +26,6 @@ services:
       - "80:80"
     volumes:
       - ./nginx_logs:/var/log/nginx
-    #  - /var/log/nginx/error.log:/var/log/nginx/error.log
-    #  - /var/log/nginx/access.log:/var/log/nginx/access.log
     networks:
       - elk    
     environment:
@@ -54,22 +53,27 @@ services:
       - elasticsearch
 
   kibana:
-    image: kibana:7.16.1
+    image: kibana:7.16.2
     depends_on:
       - elasticsearch
     volumes:
       - ./configs/kibana/config.yml:/usr/share/kibana/config/kibana.yml
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=test
     networks:
       - elk
     ports:
       - "5601:5601"
+    
 
   beats:
-    image: elastic/filebeat:7.16.2
+    image: elastic/filebeat:8.6.1
     volumes:
-      - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml
+      - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml:ro
       - ./host_metrics_app/:/host_metrics_app/
-      - ./log_gen/:/log_gen/:ro
+      - ./log_gen/:/log_gen/
     networks:
       - elk
     depends_on:
@@ -78,3 +82,5 @@ services:
 networks:
   elk:
     driver: bridge
+volumes:
+  es_data:

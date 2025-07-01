@@ -40,9 +40,7 @@
 4. Перезапустим один контейнер командой `sudo docker-compose restart elasticsearch` и вновь зайдем в него для проверки конфигурации.    
 <img src = "img/1-5.png" width = 60%>
 
-#### Конфигурационные файлы.  
-[конфигурация Docker-compose](docker-compose.yml)  
-[конфигурация Elasticsearch](configs/elasticsearch/config.yml)
+
 
 ---
 
@@ -59,11 +57,11 @@
 Через команду `docker ps -a` посмотрим список работающих контейнейнеров, в том числе Kibana.  
 <img src = "img/2-1.png" width = 60%>  
 
-2.   Обратимся к браузеру по адресу: http://192.168.65.135:5601/app/dev_tools#/console (или localhost вместо ip).  
-<img src = "img/2-2.png" width = 60%>  
+2.   Обратимся к браузеру по адресу: http://192.168.65.135:5601/app/dev_tools#/console (или localhost вместо ip).    
+<img src = "img/2-2.png" width = 60%>         
 
-Выполним запрос GET
-<img src = "img/2-3.png" width = 60%> 
+Выполним запрос GET.   
+<img src = "img/2-3.png" width = 60%>  
 
 #### Конфигурационный файл.  
 [конфигурация Kibana](configs/kibana/config.yml)
@@ -78,10 +76,43 @@
 
 ---
 
-### Решение 3.
-1.
+### Решение 3
+1. Добавим в Docker-compose.yml конфигурацию Nginx:
+   
+Nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx_logs:/var/log/nginx
+    networks:
+      - elk    
+    environment:
+      - NGINX_USER=root
+      - NGINX_ERROR_LOG_FILE=/var/log/nginx/error.log
+      - NGINX_ACCESS_LOG_FILE=/var/log/nginx/access.log 
+    restart: always`
 
+    и добавим volume в Logstash:
 
+`logstash:
+    image: logstash:7.16.2
+    volumes:
+      - ./configs/logstash/config.yml:/usr/share/logstash/config/logstash.yml
+      - ./configs/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./configs/logstash/pipelines:/usr/share/logstash/config/pipelines
+##### - ./nginx_logs:/var/log/nginx`
+
+Проверим, много раз исправим ошибки,в т.ч.:  
+    - версия должна быть одинаковой у всех сервисов;  
+    - настроимразные разрешения у конфиг файлов (777, 640);  
+    - 7-ую версию проще настроить чем 8-ую;  
+    - ищем логи `docker-compose exec logstash tail -n 5 /var/log/nginx/access.log` и т.д.;  
+    - для теста фильтр лучше брать попроще;  
+    - nginx на хосте занимает тот-же порт 80 что и в контенере (systemctl stop...),  
+ при запуске получим:  
+<img src = "img/3-1.png" width = 60%>   
+<img src = "img/3-2.png" width = 60%> 
 
 ---
 
@@ -101,3 +132,6 @@
 Для этого лог должен писаться на файловую систему, Logstash должен корректно его распарсить и разложить на поля. 
 
 *Приведите скриншот интерфейса Kibana, на котором будет виден этот лог и напишите лог какого приложения отправляется.*
+
+#### Конфигурационные файлы.  
+[конфигурация Docker-compose](docker-compose.yml)  
