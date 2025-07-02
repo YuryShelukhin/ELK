@@ -1,23 +1,28 @@
 filebeat.inputs:
   - type: log
     enabled: true
-    # Я запущу filebeat в докере и проброшу логи приложения по данному пути
     paths:
-      - /host_metrics_app/host_metrics_app.log
-    # В fields мы можем указать дополнительные поля, а затем в logstash вытаскивать их
-    # и делать какую-нибудь дополнительную работу с логами
+      - /var/log/nginx/access.log
     fields:
-      # Название нашего сервиса
-      service: host_metrics_app
+      type: nginx-access
+    close_inactive: 5m          # Уменьшаем время до закрытия файла
+    scan_frequency: 10s         # Частота проверки новых логов
+    harvester_buffer_size: 16384 # Размер буфера чтения
+    max_bytes: 10485760          # Макс. размер лога за раз
+    backoff: 1s                 # Пауза между проверками
+    fields_under_root: true
 
   - type: log
     enabled: true
     paths:
-      - /log_gen/log_gen.log
-
+      - /var/log/nginx/error.log
     fields:
-      service: log_gen
-      organisation: netology
+      type: nginx-error
+    fields_under_root: true
+
 
 output.logstash:
   hosts: ["logstash:5044"]
+  worker: 2                    # Параллельные workers
+  bulk_max_size: 50            # Размер пачки событий
+  loadbalance: true            # Балансировка нагрузки

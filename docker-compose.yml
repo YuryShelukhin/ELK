@@ -4,11 +4,11 @@ services:
   elasticsearch:
     image: elasticsearch:7.16.2
     volumes:
-      - ./configs/elasticsearch/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    #  - ./configs/elasticsearch/:/usr/share/elasticsearch/config/
       - es_data:/usr/share/elasticsearch/data
     environment:
-      - ES_JAVA_OPTS=-Xmx512m -Xms512m
-      - xpack.security.enabled=true
+      - ES_JAVA_OPTS=-Xmx1g -Xms1g
+      - xpack.security.enabled=false
       - ELASTIC_USERNAME=elastic
       - ELASTIC_PASSWORD=test
       - discovery.type=single-node
@@ -19,6 +19,7 @@ services:
       - "9300:9300"
     depends_on:
       - nginx
+    restart: unless-stopped
 
   nginx:
     image: nginx:latest
@@ -51,6 +52,11 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9600"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   kibana:
     image: kibana:7.16.2
@@ -69,15 +75,20 @@ services:
     
 
   beats:
-    image: elastic/filebeat:8.6.1
+    image: elastic/filebeat:7.16.2
     volumes:
       - ./configs/filebeat/config.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./host_metrics_app/:/host_metrics_app/
-      - ./log_gen/:/log_gen/
+      - ./nginx_logs:/var/log/nginx:ro
+    #  - ./host_metrics_app/:/host_metrics_app/
+    # - ./log_gen/:/log_gen/
     networks:
       - elk
     depends_on:
       - elasticsearch
+#    depends_on:
+#      logstash:
+#        condition: service_healthy
+    restart: unless-stopped
 
 networks:
   elk:

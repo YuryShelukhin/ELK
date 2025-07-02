@@ -318,3 +318,263 @@
 2025/07/01 12:58:45 [notice] 1#1: start worker process 29
 2025/07/01 12:58:45 [notice] 1#1: start worker process 30
 2025/07/01 13:03:57 [error] 29#29: *4 open() "/usr/share/nginx/html/hj" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /hj HTTP/1.1", host: "localhost"
+2025/07/01 17:40:03 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 17:40:03 [notice] 30#30: gracefully shutting down
+2025/07/01 17:40:03 [notice] 29#29: gracefully shutting down
+2025/07/01 17:40:03 [notice] 30#30: exiting
+2025/07/01 17:40:03 [notice] 29#29: exiting
+2025/07/01 17:40:03 [notice] 29#29: exit
+2025/07/01 17:40:03 [notice] 30#30: exit
+2025/07/01 17:40:03 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/01 17:40:03 [notice] 1#1: worker process 29 exited with code 0
+2025/07/01 17:40:03 [notice] 1#1: worker process 30 exited with code 0
+2025/07/01 17:40:03 [notice] 1#1: exit
+2025/07/01 17:41:16 [notice] 1#1: using the "epoll" event method
+2025/07/01 17:41:16 [notice] 1#1: nginx/1.29.0
+2025/07/01 17:41:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 17:41:16 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 17:41:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 17:41:16 [notice] 1#1: start worker processes
+2025/07/01 17:41:16 [notice] 1#1: start worker process 29
+2025/07/01 17:41:16 [notice] 1#1: start worker process 30
+2025/07/01 17:48:38 [error] 30#30: *1 open() "/usr/share/nginx/html/hj" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /hj HTTP/1.1", host: "localhost"
+2025/07/01 18:08:00 [error] 30#30: *3 open() "/usr/share/nginx/html/ty" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /ty HTTP/1.1", host: "localhost"
+2025/07/01 18:26:52 [error] 30#30: *4 open() "/usr/share/nginx/html/ty" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /ty HTTP/1.1", host: "localhost"
+2025/07/01 18:57:15 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 18:57:15 [notice] 29#29: gracefully shutting down
+2025/07/01 18:57:15 [notice] 30#30: gracefully shutting down
+2025/07/01 18:57:15 [notice] 30#30: exiting
+2025/07/01 18:57:15 [notice] 29#29: exiting
+2025/07/01 18:57:15 [notice] 29#29: exit
+2025/07/01 18:57:15 [notice] 30#30: exit
+2025/07/01 18:57:15 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/01 18:57:15 [notice] 1#1: worker process 29 exited with code 0
+2025/07/01 18:57:15 [notice] 1#1: signal 29 (SIGIO) received
+2025/07/01 18:57:15 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/07/01 18:57:15 [notice] 1#1: worker process 30 exited with code 0
+2025/07/01 18:57:15 [notice] 1#1: exit
+2025/07/01 18:57:52 [notice] 1#1: using the "epoll" event method
+2025/07/01 18:57:52 [notice] 1#1: nginx/1.29.0
+2025/07/01 18:57:52 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 18:57:52 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 18:57:52 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 18:57:52 [notice] 1#1: start worker processes
+2025/07/01 18:57:52 [notice] 1#1: start worker process 30
+2025/07/01 18:57:52 [notice] 1#1: start worker process 31
+2025/07/01 19:09:04 [notice] 1#1: using the "epoll" event method
+2025/07/01 19:09:04 [notice] 1#1: nginx/1.29.0
+2025/07/01 19:09:04 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 19:09:04 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 19:09:04 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 19:09:04 [notice] 1#1: start worker processes
+2025/07/01 19:09:04 [notice] 1#1: start worker process 29
+2025/07/01 19:09:04 [notice] 1#1: start worker process 30
+2025/07/01 19:17:28 [error] 29#29: *4 open() "/usr/share/nginx/html/ty" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /ty HTTP/1.1", host: "localhost"
+2025/07/01 19:17:36 [error] 29#29: *4 open() "/usr/share/nginx/html/u" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /u HTTP/1.1", host: "localhost"
+2025/07/01 20:15:32 [error] 29#29: *6 open() "/usr/share/nginx/html/y" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /y HTTP/1.1", host: "localhost"
+2025/07/01 20:34:26 [notice] 1#1: using the "epoll" event method
+2025/07/01 20:34:26 [notice] 1#1: nginx/1.29.0
+2025/07/01 20:34:26 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 20:34:26 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 20:34:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 20:34:26 [notice] 1#1: start worker processes
+2025/07/01 20:34:26 [notice] 1#1: start worker process 22
+2025/07/01 20:34:26 [notice] 1#1: start worker process 23
+2025/07/01 20:38:21 [error] 22#22: *1 open() "/usr/share/nginx/html/y" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /y HTTP/1.1", host: "localhost"
+2025/07/01 20:59:43 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 20:59:43 [notice] 23#23: gracefully shutting down
+2025/07/01 20:59:43 [notice] 22#22: gracefully shutting down
+2025/07/01 20:59:43 [notice] 23#23: exiting
+2025/07/01 20:59:43 [notice] 23#23: exit
+2025/07/01 20:59:43 [notice] 22#22: exiting
+2025/07/01 20:59:43 [notice] 22#22: exit
+2025/07/01 20:59:43 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/07/01 20:59:43 [notice] 1#1: worker process 22 exited with code 0
+2025/07/01 20:59:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/07/01 20:59:43 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2025/07/01 20:59:43 [notice] 1#1: worker process 23 exited with code 0
+2025/07/01 20:59:43 [notice] 1#1: exit
+2025/07/01 20:59:54 [notice] 1#1: using the "epoll" event method
+2025/07/01 20:59:54 [notice] 1#1: nginx/1.29.0
+2025/07/01 20:59:54 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 20:59:54 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 20:59:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 20:59:54 [notice] 1#1: start worker processes
+2025/07/01 20:59:54 [notice] 1#1: start worker process 22
+2025/07/01 20:59:54 [notice] 1#1: start worker process 23
+2025/07/01 21:00:30 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 21:00:30 [notice] 23#23: gracefully shutting down
+2025/07/01 21:00:30 [notice] 22#22: gracefully shutting down
+2025/07/01 21:00:30 [notice] 23#23: exiting
+2025/07/01 21:00:30 [notice] 22#22: exiting
+2025/07/01 21:00:30 [notice] 23#23: exit
+2025/07/01 21:00:30 [notice] 22#22: exit
+2025/07/01 21:00:30 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2025/07/01 21:00:30 [notice] 1#1: worker process 23 exited with code 0
+2025/07/01 21:00:30 [notice] 1#1: signal 29 (SIGIO) received
+2025/07/01 21:00:30 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/07/01 21:00:30 [notice] 1#1: worker process 22 exited with code 0
+2025/07/01 21:00:30 [notice] 1#1: exit
+2025/07/01 21:00:37 [notice] 1#1: using the "epoll" event method
+2025/07/01 21:00:37 [notice] 1#1: nginx/1.29.0
+2025/07/01 21:00:37 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 21:00:37 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 21:00:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 21:00:37 [notice] 1#1: start worker processes
+2025/07/01 21:00:37 [notice] 1#1: start worker process 29
+2025/07/01 21:00:37 [notice] 1#1: start worker process 30
+2025/07/01 21:06:56 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 21:06:56 [notice] 29#29: gracefully shutting down
+2025/07/01 21:06:56 [notice] 30#30: gracefully shutting down
+2025/07/01 21:06:56 [notice] 29#29: exiting
+2025/07/01 21:06:56 [notice] 30#30: exiting
+2025/07/01 21:06:56 [notice] 29#29: exit
+2025/07/01 21:06:56 [notice] 30#30: exit
+2025/07/01 21:06:56 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/01 21:06:56 [notice] 1#1: worker process 29 exited with code 0
+2025/07/01 21:06:56 [notice] 1#1: worker process 30 exited with code 0
+2025/07/01 21:06:56 [notice] 1#1: exit
+2025/07/01 21:07:09 [notice] 1#1: using the "epoll" event method
+2025/07/01 21:07:09 [notice] 1#1: nginx/1.29.0
+2025/07/01 21:07:09 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 21:07:09 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 21:07:09 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 21:07:09 [notice] 1#1: start worker processes
+2025/07/01 21:07:09 [notice] 1#1: start worker process 21
+2025/07/01 21:07:09 [notice] 1#1: start worker process 22
+2025/07/01 21:07:42 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/01 21:07:42 [notice] 22#22: gracefully shutting down
+2025/07/01 21:07:42 [notice] 22#22: exiting
+2025/07/01 21:07:42 [notice] 22#22: exit
+2025/07/01 21:07:42 [notice] 21#21: gracefully shutting down
+2025/07/01 21:07:42 [notice] 21#21: exiting
+2025/07/01 21:07:42 [notice] 21#21: exit
+2025/07/01 21:07:42 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/07/01 21:07:42 [notice] 1#1: worker process 22 exited with code 0
+2025/07/01 21:07:42 [notice] 1#1: signal 29 (SIGIO) received
+2025/07/01 21:07:42 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/07/01 21:07:42 [notice] 1#1: worker process 21 exited with code 0
+2025/07/01 21:07:42 [notice] 1#1: exit
+2025/07/01 21:07:54 [notice] 1#1: using the "epoll" event method
+2025/07/01 21:07:54 [notice] 1#1: nginx/1.29.0
+2025/07/01 21:07:54 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/01 21:07:54 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/01 21:07:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/01 21:07:54 [notice] 1#1: start worker processes
+2025/07/01 21:07:54 [notice] 1#1: start worker process 29
+2025/07/01 21:07:54 [notice] 1#1: start worker process 30
+2025/07/02 17:44:06 [error] 30#30: *2 open() "/usr/share/nginx/html/nonexistent-page" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /nonexistent-page HTTP/1.1", host: "localhost"
+2025/07/02 17:45:41 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 17:45:41 [notice] 30#30: gracefully shutting down
+2025/07/02 17:45:41 [notice] 29#29: gracefully shutting down
+2025/07/02 17:45:41 [notice] 30#30: exiting
+2025/07/02 17:45:41 [notice] 29#29: exiting
+2025/07/02 17:45:41 [notice] 29#29: exit
+2025/07/02 17:45:41 [notice] 30#30: exit
+2025/07/02 17:45:41 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/07/02 17:45:41 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 17:45:41 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 17:45:41 [notice] 1#1: exit
+2025/07/02 18:12:41 [notice] 1#1: using the "epoll" event method
+2025/07/02 18:12:41 [notice] 1#1: nginx/1.29.0
+2025/07/02 18:12:41 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/02 18:12:41 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/02 18:12:41 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/02 18:12:41 [notice] 1#1: start worker processes
+2025/07/02 18:12:41 [notice] 1#1: start worker process 29
+2025/07/02 18:12:41 [notice] 1#1: start worker process 30
+2025/07/02 18:15:57 [error] 29#29: *2 open() "/usr/share/nginx/html/nonexistent-page" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /nonexistent-page HTTP/1.1", host: "localhost"
+2025/07/02 18:26:58 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 18:26:58 [notice] 29#29: gracefully shutting down
+2025/07/02 18:26:58 [notice] 30#30: gracefully shutting down
+2025/07/02 18:26:58 [notice] 29#29: exiting
+2025/07/02 18:26:58 [notice] 30#30: exiting
+2025/07/02 18:26:58 [notice] 29#29: exit
+2025/07/02 18:26:58 [notice] 30#30: exit
+2025/07/02 18:26:58 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/02 18:26:58 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 18:26:58 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 18:26:58 [notice] 1#1: exit
+2025/07/02 18:27:08 [notice] 1#1: using the "epoll" event method
+2025/07/02 18:27:08 [notice] 1#1: nginx/1.29.0
+2025/07/02 18:27:08 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/02 18:27:08 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/02 18:27:08 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/02 18:27:08 [notice] 1#1: start worker processes
+2025/07/02 18:27:08 [notice] 1#1: start worker process 29
+2025/07/02 18:27:08 [notice] 1#1: start worker process 30
+2025/07/02 18:46:34 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 18:46:34 [notice] 30#30: gracefully shutting down
+2025/07/02 18:46:34 [notice] 29#29: gracefully shutting down
+2025/07/02 18:46:34 [notice] 30#30: exiting
+2025/07/02 18:46:34 [notice] 29#29: exiting
+2025/07/02 18:46:34 [notice] 30#30: exit
+2025/07/02 18:46:34 [notice] 29#29: exit
+2025/07/02 18:46:35 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/02 18:46:35 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 18:46:35 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 18:46:35 [notice] 1#1: exit
+2025/07/02 18:47:05 [notice] 1#1: using the "epoll" event method
+2025/07/02 18:47:05 [notice] 1#1: nginx/1.29.0
+2025/07/02 18:47:05 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/02 18:47:05 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/02 18:47:05 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/02 18:47:05 [notice] 1#1: start worker processes
+2025/07/02 18:47:05 [notice] 1#1: start worker process 29
+2025/07/02 18:47:05 [notice] 1#1: start worker process 30
+2025/07/02 19:35:52 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 19:35:52 [notice] 30#30: gracefully shutting down
+2025/07/02 19:35:52 [notice] 29#29: gracefully shutting down
+2025/07/02 19:35:52 [notice] 30#30: exiting
+2025/07/02 19:35:52 [notice] 30#30: exit
+2025/07/02 19:35:52 [notice] 29#29: exiting
+2025/07/02 19:35:52 [notice] 29#29: exit
+2025/07/02 19:35:52 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/02 19:35:52 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 19:35:52 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 19:35:52 [notice] 1#1: exit
+2025/07/02 19:36:15 [notice] 1#1: using the "epoll" event method
+2025/07/02 19:36:15 [notice] 1#1: nginx/1.29.0
+2025/07/02 19:36:15 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/02 19:36:15 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/02 19:36:15 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/02 19:36:15 [notice] 1#1: start worker processes
+2025/07/02 19:36:15 [notice] 1#1: start worker process 29
+2025/07/02 19:36:15 [notice] 1#1: start worker process 30
+2025/07/02 19:49:31 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 19:49:31 [notice] 29#29: gracefully shutting down
+2025/07/02 19:49:31 [notice] 30#30: gracefully shutting down
+2025/07/02 19:49:31 [notice] 29#29: exiting
+2025/07/02 19:49:31 [notice] 30#30: exiting
+2025/07/02 19:49:31 [notice] 30#30: exit
+2025/07/02 19:49:31 [notice] 29#29: exit
+2025/07/02 19:49:31 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/02 19:49:31 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 19:49:31 [notice] 1#1: signal 29 (SIGIO) received
+2025/07/02 19:49:31 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/07/02 19:49:31 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 19:49:31 [notice] 1#1: exit
+2025/07/02 19:56:38 [notice] 1#1: using the "epoll" event method
+2025/07/02 19:56:38 [notice] 1#1: nginx/1.29.0
+2025/07/02 19:56:38 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14+deb12u1) 
+2025/07/02 19:56:38 [notice] 1#1: OS: Linux 6.8.0-60-generic
+2025/07/02 19:56:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/07/02 19:56:38 [notice] 1#1: start worker processes
+2025/07/02 19:56:38 [notice] 1#1: start worker process 29
+2025/07/02 19:56:38 [notice] 1#1: start worker process 30
+2025/07/02 19:59:22 [error] 30#30: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/07/02 19:59:31 [error] 30#30: *1 open() "/usr/share/nginx/html/yu" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /yu HTTP/1.1", host: "localhost"
+2025/07/02 20:02:14 [error] 30#30: *3 open() "/usr/share/nginx/html/nonexistent-page" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /nonexistent-page HTTP/1.1", host: "localhost"
+2025/07/02 20:10:12 [error] 30#30: *5 open() "/usr/share/nginx/html/nonexistent-page" failed (2: No such file or directory), client: 172.20.0.1, server: localhost, request: "GET /nonexistent-page HTTP/1.1", host: "localhost"
+2025/07/02 20:21:37 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/07/02 20:21:37 [notice] 30#30: gracefully shutting down
+2025/07/02 20:21:37 [notice] 29#29: gracefully shutting down
+2025/07/02 20:21:37 [notice] 30#30: exiting
+2025/07/02 20:21:37 [notice] 29#29: exiting
+2025/07/02 20:21:37 [notice] 29#29: exit
+2025/07/02 20:21:37 [notice] 30#30: exit
+2025/07/02 20:21:37 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/07/02 20:21:37 [notice] 1#1: worker process 29 exited with code 0
+2025/07/02 20:21:37 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/07/02 20:21:37 [notice] 1#1: worker process 30 exited with code 0
+2025/07/02 20:21:37 [notice] 1#1: exit
